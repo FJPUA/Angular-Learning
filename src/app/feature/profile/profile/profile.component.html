@@ -1,1 +1,29 @@
-<p>profile works!</p>
+<div class="holder text-bg-dark p-4">
+    <div class="row row-cols-2">
+        <div class="col">
+            <h1 class="display-5">Profile Information </h1>
+        </div>
+        <div class="col">
+            <i class="float-end bi bi-pencil-square" (click)="onClickEdit()" ></i>
+        </div>
+    </div>
+    <div class="p-5 fs-5">
+        <div class="row row-cols-2 g-3">
+            <div class="col d-flex flex-column">
+                <label>First Name :</label> {{profile?.firstName}}
+            </div>
+            <div class="col d-flex flex-column">
+                <label>Last Name :</label> {{profile?.lastName}}
+            </div>
+            <div class="col d-flex flex-column">
+                <label>Birth Date :</label> {{profile?.birthDate | date:'MM/dd/YYYY'}}
+            </div>
+            <div class="col d-flex flex-column">
+                <label>Age :</label> {{profile?.birthDate}}
+            </div>
+            <div class="col d-flex flex-column">
+                <label>Email Address :</label> {{profile?.email}}
+            </div>
+        </div>
+    </div>
+</div>

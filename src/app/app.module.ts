@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './feature/dashboard/dashboard.component';
 import { NavigationComponent } from './core/navigation/navigation.component';
 import { ProfileComponent } from './feature/profile/profile/profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi:true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    ProfileSearchComponent
+    ProfileSearchComponent,
+    ProfileEditComponent
   ],
   imports: [
-    CommonModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    SharedModule
   ]
 })
 export class ProfileModule { }

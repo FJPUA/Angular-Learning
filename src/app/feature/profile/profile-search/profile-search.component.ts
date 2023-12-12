@@ -24,6 +24,6 @@ export class ProfileSearchComponent implements OnInit {
   }
 
   onSelectProfile(id: string): void{
-    this.router.navigate([`${this.routeLink.PROFILE}/${id}`]);
+    this.router.navigate([`${this.routeLink.PROFILE}` , id]);
   }
 }

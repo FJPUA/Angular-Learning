@@ -1,0 +1,41 @@
+<div class="holder text-bg-dark p-4" *ngIf="!isLoading">
+    <div class="row row-cols-2">
+        <div class="col">
+            <h1 class="display-5">Edit Profile Information</h1>
+        </div>
+    </div>
+    <form class="p-5" #profileForm="ngForm" novalidate>
+        <div class="row row-cols-1 g-3">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input name="firstName" type="text" class="form-control" placeholder="First Name" [(ngModel)]="profile.firstName" required [ngClass]="{'is-invalid' : profileForm.form.controls.firstName?.invalid}">
+                    <label for="floatingInput">First Name</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input name="lastName" type="text" class="form-control" placeholder="Last Name" [(ngModel)]="profile.lastName" required [ngClass]="{'is-invalid' : profileForm.form.controls.lastName?.invalid}">
+                    <label for="floatingInput">Last Name</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input name="email" type="email" class="form-control" placeholder="name@example.com" [(ngModel)]="profile.email" required [ngClass]="{'is-invalid' : profileForm.form.controls.email?.invalid}">
+                    <label for="floatingInput">Email address</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input name="birthDate" type="date" class="form-control" placeholder="MM/dd/YYYY" [(ngModel)]="profile.birthDate" disabled>
+                    <label for="floatingInput">Birth Date</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button [disabled]="profileForm.invalid || !profileForm.dirty" type="button" class="btn btn-primary me-1" (click)="onClickSave()">Save</button>
+                <button type="button" class="btn btn-outline-secondary">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
