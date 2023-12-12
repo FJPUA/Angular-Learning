@@ -6,9 +6,16 @@ import { Subject } from 'rxjs';
 })
 export class LoadingService {
 
-  private isLoading: boolean = false;
+  private _isLoading: boolean = false;
+  //hide the subject itself to not allow outside manipulation of this from the service
   private Loading : Subject<boolean> = new Subject<boolean>();
 
+  //create a public variable to avoid repeat of variables of loading checker in components
+  public get isLoading() {
+    return this._isLoading;
+  }
+
+  //create the subject as an observable so others can subscribe and see the update
   isLoading$ = this.Loading.asObservable();
 
   constructor() { 
@@ -16,12 +23,12 @@ export class LoadingService {
   }
 
   onLoading() {
-    this.isLoading = true;
-    this.Loading.next(this.isLoading);
+    this._isLoading = true;
+    this.Loading.next(this._isLoading);
   }
 
   onLoadingComplete(){
-    this.isLoading = false;
-    this.Loading.next(this.isLoading);
+    this._isLoading = false;
+    this.Loading.next(this._isLoading);
   }
 }

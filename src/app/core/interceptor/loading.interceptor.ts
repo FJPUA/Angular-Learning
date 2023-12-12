@@ -17,10 +17,8 @@ export class LoadingInterceptor implements HttpInterceptor {
     if(request.method !== 'GET') {
       return next.handle(request);
     }
-    
     this.loadingService.onLoading(); 
-
-    //add a delay to mimic slow loading in API calls
+    //add a delay to mimic slow loading in API calls for UI testing
     return next.handle(request)
     .pipe(delay(1000))
     .pipe(finalize(()=> {
