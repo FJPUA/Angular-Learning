@@ -15,10 +15,11 @@ export class ProfileComponent implements OnInit {
   private routeToken: typeof ROUTING_TOKEN = ROUTING_TOKEN;
 
   constructor(private profileService: ProfileService, private route: ActivatedRoute, private router: Router){
-    this.id=this.route.snapshot.params["id"];
+    
   }
 
   ngOnInit(): void {
+    this.id=this.route.snapshot.params["id"];
     this.profileService.get(this.id).subscribe((res)=> {
       this.profile = res;
     })
